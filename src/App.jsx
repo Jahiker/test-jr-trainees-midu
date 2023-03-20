@@ -19,7 +19,8 @@ export const App = () => {
   useEffect(() => {
     if (!fact) return
 
-    const firstWord = fact.split(' ')
+    const firstWord = fact.split(' ', 3).join(' ')
+    console.log('🚀 ~ file: App.jsx:23 ~ useEffect ~ firstWord:', firstWord)
 
     fetch(`https://cataas.com/cat/says/${firstWord}?size=50&color=red&json=true`)
       .then(resp => resp.json())
