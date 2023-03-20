@@ -20,7 +20,6 @@ export const App = () => {
     if (!fact) return
 
     const firstWord = fact.split(' ', 3).join(' ')
-    console.log('🚀 ~ file: App.jsx:23 ~ useEffect ~ firstWord:', firstWord)
 
     fetch(`https://cataas.com/cat/says/${firstWord}?size=50&color=red&json=true`)
       .then(resp => resp.json())
@@ -31,10 +30,10 @@ export const App = () => {
   }, [fact])
 
   return (
-    <main>
-      <h1>App de gatitos</h1>
+    <main className='flex flex-col items-center gap-8 p-6'>
+      <h1 className='text-3xl font-bold underline text-purple-800'>App de gatitos</h1>
       {fact && <p>{fact}</p>}
-      {imageUrl && <img src={imageUrl} alt={`Image gotten by a cat fact for ${fact}`} />}
+      {imageUrl && <img src={imageUrl} alt={`Image gotten by a cat fact for ${fact}`} className='rounded-xl shadow-md' />}
     </main>
   )
 }
